@@ -4,15 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-// 프로젝트 카테고리
-const projectCategories = [
-  { name: "All", count: 8 },
-  { name: "Front-end", count: 3 },
-  { name: "Back-end", count: 3 },
-  { name: "Mobile", count: 2 },
-];
-
-// 임시 프로젝트 목록
+// 프로젝트 목록
 const projects = [
   { id: 1, title: "Project #1", description: "새미 프로젝트 HTML, CSS" },
   { id: 2, title: "Project #2", description: "파이널 프로젝트 HTML, CSS" },
@@ -26,6 +18,18 @@ const Main = () => {
     { name: "React", percentage: 25 },
     { name: "NodeJs", percentage: 18 },
   ]);
+  // 프로젝트 카테고리
+  const projectCategories = [
+    { name: "All", count: 2 },
+    { name: "Solo-project", count: 0 },
+    { name: "Team-project", count: 2 },
+  ];
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const handleCategorySelect = (categoryName) => {
+    setSelectedCategory(categoryName);
+  };
+
   return (
     <main>
       {/* Home Section */}
@@ -118,37 +122,43 @@ const Main = () => {
         </div>
       </section>
 
-      {/* Work Section */}
-      <section id="work">
-        <h2>My Work</h2>
-        <p>Projects</p>
-
-        {/* Filter Buttons */}
-        <ul>
-          {projectCategories.map((category) => (
-            <li key={category.name}>
-              <button>
-                {category.name} <span>({category.count})</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        {/* Project List */}
-        <ul>
-          {projects.map((project, index) => (
-            <li key={project.id || `placeholder-${index}`}>
-              {/* 프로젝트 상세 페이지/외부 링크는 a 태그 유지 */}
-              <a href="#" target="_blank">
-                <img src="" alt="" />
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+      {/* Work */}
+      <section id="work" className="section">
+        <div className="max-container">
+          <h2 className="title">My Work</h2>
+          <p className="description">Projects</p>
+          <ul className="categories">
+            {projectCategories.map((category) => (
+              <li key={category.name}>
+                <button
+                  className={`category ${
+                    selectedCategory === category.name
+                      ? "category--selected"
+                      : ""
+                  }`}
+                  onClick={() => handleCategorySelect(category.name)}
+                >
+                  {category.name}{" "}
+                  <span className="category_count">{category.count}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {projects.map((project, index) => (
+              <li key={project.id || `placeholder-${index}`}>
+                {/* 프로젝트 상세 페이지/외부 링크는 a 태그 유지 */}
+                <a href="#" target="_blank">
+                  <img src="" alt="" />
+                  <div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       {/* Testimonials Section */}
