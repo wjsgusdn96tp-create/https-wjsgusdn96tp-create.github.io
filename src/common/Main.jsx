@@ -4,12 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-// 프로젝트 목록
-const projects = [
-  { id: 1, title: "Project #1", description: "새미 프로젝트 HTML, CSS" },
-  { id: 2, title: "Project #2", description: "파이널 프로젝트 HTML, CSS" },
-];
-
 const Main = () => {
   const [codingSkills, setCodingSkills] = useState([
     { name: "HTML", percentage: 15 },
@@ -29,7 +23,25 @@ const Main = () => {
   const handleCategorySelect = (categoryName) => {
     setSelectedCategory(categoryName);
   };
+  // Main.jsx 파일 등 projects 배열이 정의된 곳
 
+  const projects = [
+    {
+      id: 1,
+      title: "Project #1",
+      description: "새미 프로젝트 HTML, CSS",
+      // ⭐ 이미지 경로 추가: 각 프로젝트의 썸네일 경로를 입력
+      image: "/profile_images/poteupollio.jpg", // 예시 경로
+    },
+    {
+      id: 2,
+      title: "Project #2",
+      description: "파이널 프로젝트 HTML, CSS",
+      // ⭐ 이미지 경로 추가: 각 프로젝트의 썸네일 경로를 입력
+      image: "/profile_images/khlogo.jpg", // 예시 경로
+    },
+    // 프로젝트가 추가될 때마다 여기에 이미지 경로를 넣어줍니다.
+  ];
   return (
     <main>
       {/* Home Section */}
@@ -144,12 +156,15 @@ const Main = () => {
               </li>
             ))}
           </ul>
-          <ul>
+          <ul className="projects">
             {projects.map((project, index) => (
-              <li key={project.id || `placeholder-${index}`}>
+              <li
+                className="project"
+                key={project.id || `placeholder-${index}`}
+              >
                 {/* 프로젝트 상세 페이지/외부 링크는 a 태그 유지 */}
                 <a href="#" target="_blank">
-                  <img src="" alt="" />
+                  <img src={project.image} alt={project.title} />
                   <div>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
