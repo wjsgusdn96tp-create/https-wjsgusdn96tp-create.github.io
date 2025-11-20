@@ -31,14 +31,14 @@ const Main = () => {
       title: "Project #1",
       description: "새미 프로젝트 HTML, CSS",
       // ⭐ 이미지 경로 추가: 각 프로젝트의 썸네일 경로를 입력
-      image: "/profile_images/poteupollio.jpg", // 예시 경로
+      image: "/profile_images/semi-project.jpg", // 예시 경로
     },
     {
       id: 2,
       title: "Project #2",
       description: "파이널 프로젝트 HTML, CSS",
       // ⭐ 이미지 경로 추가: 각 프로젝트의 썸네일 경로를 입력
-      image: "/profile_images/khlogo.jpg", // 예시 경로
+      image: "/profile_images/final-project.jpg", // 예시 경로
     },
     // 프로젝트가 추가될 때마다 여기에 이미지 경로를 넣어줍니다.
   ];
@@ -163,13 +163,17 @@ const Main = () => {
                 key={project.id || `placeholder-${index}`}
               >
                 {/* 프로젝트 상세 페이지/외부 링크는 a 태그 유지 */}
-                <a href="#" target="_blank">
-                  <img src={project.image} alt={project.title} />
-                  <div>
-                    <h3>{project.title}</h3>
+                <Link href="#" target="_blank">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project_img"
+                  />
+                  <div className="project_metadata">
+                    <h3 className="project_title">{project.title}</h3>
                     <p>{project.description}</p>
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
