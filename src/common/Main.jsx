@@ -30,14 +30,14 @@ const Main = () => {
       id: 1,
       title: "Project #1",
       description: "새미 프로젝트 HTML, CSS",
-      image: "/profile_images/semi-project.jpg",
+      image: `${import.meta.env.BASE_URL}profile_images/semi-project.jpg`,
       category: "Team-project",
     },
     {
       id: 2,
       title: "Project #2",
       description: "파이널 프로젝트 HTML, CSS",
-      image: "/profile_images/final-project.jpg",
+      image: `${import.meta.env.BASE_URL}profile_images/semi-project.jpg`,
       category: "Team-project",
     },
     // 나중에 솔로 프로젝트 생기면 이렇게 추가
@@ -89,7 +89,7 @@ const Main = () => {
         <div className="home_container" ref={homeRef}>
           <img
             className="home_avatar"
-            src="/profile_images/profile.jpg"
+            src={`${import.meta.env.BASE_URL}profile_images/profile.jpg`}
             alt="Profile"
           />
           <h2 className="home_title">
@@ -127,7 +127,7 @@ const Main = () => {
         </ul>
         <ul className="jobs">
           <li className="job">
-            <img src="/profile_images/khlogo.jpg" />
+            <img src={`${import.meta.env.BASE_URL}profile_images/khlogo.jpg`} />
             <div>
               <p className="job_name">수료 학생 (KH 교육원)</p>
               <p className="job_period">2025 05 14 ~ 2025 11 04</p>
