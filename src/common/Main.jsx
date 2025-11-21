@@ -8,8 +8,8 @@ const Main = () => {
   const [codingSkills, setCodingSkills] = useState([
     { name: "HTML", percentage: 15 },
     { name: "CSS", percentage: 23 },
-    { name: "JavaScript", percentage: 13 },
-    { name: "React", percentage: 17 },
+    { name: "JavaScript", percentage: 17 },
+    { name: "React", percentage: 18 },
     { name: "NodeJs", percentage: 18 },
   ]);
   // 프로젝트 카테고리
@@ -127,7 +127,7 @@ const Main = () => {
         </ul>
         <ul className="jobs">
           <li className="job">
-            <img src="profile_images/khlogo.jpg" />
+            <img src="/profile_images/khlogo.jpg" />
             <div>
               <p className="job_name">수료 학생 (KH 교육원)</p>
               <p className="job_period">2025 05 14 ~ 2025 11 04</p>
