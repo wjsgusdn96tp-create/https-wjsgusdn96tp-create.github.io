@@ -22,7 +22,7 @@ const Header = () => {
           </Link>
         </h1>
       </div>
-      <nav>
+      <nav className="header_nav">
         <ul className="header_menu">
           {navItems.map((item) => (
             <li key={item.name}>

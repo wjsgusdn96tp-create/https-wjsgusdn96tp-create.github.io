@@ -358,6 +358,20 @@ button:focus {
   .description {
     font-size: 1rem;
   }
+  .header {
+    flex-direction: column;
+    align-items: start;
+  }
+  .header_menu {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 4rem;
+    gap: 1rem;
+  }
+
+  .header_nav {
+    width: 100%;
+  }
   #home {
     padding-bottom: 3rem;
   }
@@ -374,5 +388,17 @@ button:focus {
   }
   .job {
     justify-content: center;
+  }
+  .skills {
+    grid-template-columns: 1fr;
+  }
+  .categories {
+    flex-direction: column;
+  }
+  .category {
+    width: 100%;
+  }
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
