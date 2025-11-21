@@ -30,18 +30,33 @@ const Main = () => {
       id: 1,
       title: "Project #1",
       description: "새미 프로젝트 HTML, CSS",
-      // ⭐ 이미지 경로 추가: 각 프로젝트의 썸네일 경로를 입력
-      image: "/profile_images/semi-project.jpg", // 예시 경로
+      image: "/profile_images/semi-project.jpg",
+      category: "Team-project",
     },
     {
       id: 2,
       title: "Project #2",
       description: "파이널 프로젝트 HTML, CSS",
-      // ⭐ 이미지 경로 추가: 각 프로젝트의 썸네일 경로를 입력
-      image: "/profile_images/final-project.jpg", // 예시 경로
+      image: "/profile_images/final-project.jpg",
+      category: "Team-project",
     },
-    // 프로젝트가 추가될 때마다 여기에 이미지 경로를 넣어줍니다.
+    // 나중에 솔로 프로젝트 생기면 이렇게 추가
+    // {
+    //   id: 3,
+    //   title: "Project #3",
+    //   description: "솔로 프로젝트 예시",
+    //   image: "/profile_images/solo-project.jpg",
+    //   category: "Solo-project", // 솔로 프로젝트
+    // },
   ];
+  // 선택된 카테고리에 따라 필터링된 프로젝트 목록
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects // All이면 전부 다
+      : projects.filter((project) => project.category === selectedCategory);
+  // 만약 선택된 카테고리가 "All" 이면 → projects 배열 전체 사용
+  // 아니면 → project.category 가 "Solo-project" 또는 "Team-project" 인 것만 골라서 사용
+
   // Home 영역 DOM을 직접 가리키기 위한 ref
   const homeRef = useRef(null);
   // Home 섹션을 아래로 스크롤할수록 점점 투명하게 만드는 효과
@@ -184,7 +199,7 @@ const Main = () => {
             ))}
           </ul>
           <ul className="projects">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <li
                 className="project"
                 key={project.id || `placeholder-${index}`}
