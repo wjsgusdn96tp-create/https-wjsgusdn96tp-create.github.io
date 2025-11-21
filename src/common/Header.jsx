@@ -101,8 +101,11 @@ const Header = () => {
       <div className="header_logo">
         <img
           className="header_logo_img"
-          src="/profile_images/poteupollio-modified.jpg"
+          src={`${
+            import.meta.env.BASE_URL
+          }profile_images/poteupollio-modified.jpg`}
         />
+
         <h1 className="header_logo_title">
           <Link to="#home" onClick={(e) => handleNavClick(e, "#home")}>
             HyunWoo

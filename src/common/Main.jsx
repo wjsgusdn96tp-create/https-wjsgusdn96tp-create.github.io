@@ -37,7 +37,7 @@ const Main = () => {
       id: 2,
       title: "Project #2",
       description: "파이널 프로젝트 HTML, CSS",
-      image: `${import.meta.env.BASE_URL}profile_images/semi-project.jpg`,
+      image: `${import.meta.env.BASE_URL}profile_images/final-project.jpg`,
       category: "Team-project",
     },
     // 나중에 솔로 프로젝트 생기면 이렇게 추가
